@@ -2,14 +2,22 @@ import express from "express";
 import bodyParser from "body-parser";
 import ejs from "ejs";
 import mongoose from "mongoose";
+require('dotenv').config();
 
 const app = express();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
-mongoose.connect(
-  "mongodb+srv://admin-Harshal:atlas123@cluster0.7yhjsgh.mongodb.net/websiteDB"
-);
+const databaseUrl = process.env.DATABASE_URL;
+
+mongoose.connect(databaseUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+// mongoose.connect(
+//   "mongodb+srv://admin-Harshal:atlas123@cluster0.7yhjsgh.mongodb.net/websiteDB"
+// );
 
 const siteSchema = new mongoose.Schema({
   link: {
