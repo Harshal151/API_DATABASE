@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+const port = process.env.PORT || 3000;
 
 require('dotenv').config();
 
@@ -49,8 +50,8 @@ app.get("/", (req, res) => {
   res.render("index.ejs");
 });
 
-app.listen("3000", () => {
-  console.log("Site running on port num 3000!");
+app.listen(port, () => {
+  console.log(`Site running on port num ${port}!`);
 });
 
 app.post("/submit", (req, res) => {
