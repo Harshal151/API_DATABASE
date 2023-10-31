@@ -1,7 +1,8 @@
-import express from "express";
-import bodyParser from "body-parser";
-import ejs from "ejs";
-import mongoose from "mongoose";
+const express = require("express");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+const mongoose = require("mongoose");
+
 require('dotenv').config();
 
 const app = express();
